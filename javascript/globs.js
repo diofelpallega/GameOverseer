@@ -753,6 +753,16 @@ function setTempManPass(mainMan, tempMan, password)
 	  {
 			if (res[0][0] == "OK") 
 			{
+				var qty = document.getElementById('counts').value;
+				  var new_qty = parseInt(qty,10) + 1;
+    
+				 if (new_qty < 0) 
+				 {
+					new_qty = 0;
+			     }
+    
+				document.getElementById('counts').value = new_qty; 
+				
 				$('#status').empty();
 				$('#status').append("Temporary Manager already set");
 				$('#status').css('color','white');
@@ -766,6 +776,8 @@ function setTempManPass(mainMan, tempMan, password)
       } 
       }); 
 }
+
+ 
 
  
 function getParameterByName(name)
