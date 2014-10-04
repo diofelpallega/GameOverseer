@@ -716,15 +716,7 @@ function checkTempMan(username)
 			if (res[0][0] != "None") 
 			{
 			
-				 var qty = document.getElementById('counts').value;
-				  var new_qty = parseInt(qty,10) + 1;
-    
-				 if (new_qty < 0) 
-				 {
-					new_qty = 0;
-			     }
-    
-				document.getElementById('counts').value = new_qty; 
+				 
 				
 				$("#notice").append("You have been given authority by Manager: " + res[0][1] + " " + res[0][2] + " (Username: " + res[1] + " ) "+
 				"to manage his/her league. The password is: " + res[0][3]);
