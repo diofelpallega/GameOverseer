@@ -703,34 +703,6 @@ function checkEmail(email)
 }
 
 
-function checkTempMan(username)
-{
-   $.ajax({
-      url: siteloc + scriptloc + "checkTempMan.py",
-      data: {username:username},
-      dataType: 'json',
-      success:
-	  function (res) 
-	  {
- 
-			if (res[0][0] != "None") 
-			{
-			
-				 
-				
-				$("#notice").append("You have been given authority by Manager: " + res[0][1] + " " + res[0][2] + " (Username: " + res[1] + " ) "+
-				"to manage his/her league. The password is: " + res[0][3]);
-				
-				  $("#divider").html('<br> <hr width="300">' );
-			}
-			else
-			{
-				alert("None.");
-			}
-      } 
-      }); 
-}
-
 
 function modify_qty()
 {
@@ -745,6 +717,12 @@ function modify_qty()
 				document.getElementById('counts').value = new_qty; 
 }
 
+function datecheck()
+{
+var d = new Date();
+document.getElementById("date").innerHTML = d.toDateString();
+
+}
 
 function setTempManPass(mainMan, tempMan, password)
 {
@@ -759,15 +737,7 @@ function setTempManPass(mainMan, tempMan, password)
 	  {
 			if (res[0][0] == "OK") 
 			{
-				var qty = document.getElementById('counts').value;
-				  var new_qty = parseInt(qty,10) + 1;
-    
-				 if (new_qty < 0) 
-				 {
-					new_qty = 0;
-			     }
-    
-				document.getElementById('counts').value = new_qty; 
+				
 				
 				$('#status').empty();
 				$('#status').append("Temporary Manager already set");
@@ -781,11 +751,34 @@ function setTempManPass(mainMan, tempMan, password)
 			}
       } 
       }); 
+	  
+	  $.ajax({
+      url: siteloc + scriptloc + "checkTempMan.py",
+      data: {username:mainMan},
+      dataType: 'json',
+      success:
+	  function (res) 
+	  {
+ 
+			if (res[0][0] != "None") 
+			{
+			var d = new Date(); 
+	        var adlaw = d.toDateString();	 
+				$("#notice").append("You have been given authority by Manager: " + res[0][1] + " " + res[0][2] + " (Username: " + res[1] + " ) "+
+				"to manage his/her league. The password is: " + res[0][3] +'<br> <hr width="300"> ' + adlaw  );
+				
+				
+		 
+				 
+			}
+			else
+			{
+				alert("None.");
+			}
+      } 
+      }); 
 }
 
- 
-
- 
 function getParameterByName(name)
 {
     name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]"); 	    
