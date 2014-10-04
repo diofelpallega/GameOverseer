@@ -721,7 +721,7 @@ function checkTempMan(username)
 				$("#notice").append("You have been given authority by Manager: " + res[0][1] + " " + res[0][2] + " (Username: " + res[1] + " ) "+
 				"to manage his/her league. The password is: " + res[0][3]);
 				
-				 
+				  $("#divider").html('<br> <hr width="300">' );
 			}
 			else
 			{
