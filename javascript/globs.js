@@ -765,9 +765,9 @@ function setTempManPass(mainMan, tempMan, password)
 			var d = new Date(); 
 	        var adlaw = d.toDateString();	 
 				$("#notice").append("You have been given authority by Manager: " + res[0][1] + " " + res[0][2] + " (Username: " + res[1] + " ) "+
-				"to manage his/her league. The password is: " + res[0][3] +'<br> <hr width="300"> ' + adlaw  );
+				"to manage his/her league. The password is: " + res[0][3] +'<br>  <h4 style="color:green;">'+ adlaw  +'</h4> <br> <hr   width="300"> ' );
 				
-				
+			 
 		 
 				 
 			}
