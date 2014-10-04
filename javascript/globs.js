@@ -735,7 +735,7 @@ function checkTempMan(username)
 function modify_qty()
 {
    var qty = document.getElementById('counts').value;
-				  var new_qty = parseInt(qty,10) - 1;
+				  var new_qty = 0;
     
 				 if (new_qty < 0) 
 				 {
